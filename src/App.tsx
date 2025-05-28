@@ -1,4 +1,6 @@
-import React, { useState, CSSProperties, FormEvent } from "react";
+import { useState } from "react";
+import type { CSSProperties, FormEvent } from "react";
+
 
 export default function App() {
   const [showMessage, setShowMessage] = useState<boolean>(false);
