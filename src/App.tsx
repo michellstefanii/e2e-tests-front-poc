@@ -1,65 +1,65 @@
-import React from "react";
+import React, { useState, CSSProperties, FormEvent } from "react";
 
 export default function App() {
-  const [showMessage, setShowMessage] = React.useState(false);
+  const [showMessage, setShowMessage] = useState<boolean>(false);
 
-  const allcontainerStyle = {
+  const allcontainerStyle: CSSProperties = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     width: "100vw",
     height: "100vh",
-    background: "#f0f2f5"
+    background: "#f0f2f5",
   };
 
-  const containerStyle = {
+  const containerStyle: CSSProperties = {
     background: "white",
     padding: "2rem",
     borderRadius: "8px",
     boxShadow: "0 0 10px rgba(0,0,0,0.1)",
     width: "300px",
-    fontFamily: "Arial, sans-serif"
+    fontFamily: "Arial, sans-serif",
   };
 
-  const headingStyle = {
+  const headingStyle: CSSProperties = {
     marginBottom: "1rem",
     color: "#333",
-    textAlign: "center"
+    textAlign: "center",
   };
 
-  const inputStyle = {
+  const inputStyle: CSSProperties = {
     width: "100%",
     padding: "0.5rem",
     marginBottom: "1rem",
     border: "1px solid #ccc",
-    borderRadius: "4px"
+    borderRadius: "4px",
   };
 
-  const buttonStyle = {
+  const buttonStyle: CSSProperties = {
     width: "100%",
     padding: "0.5rem",
     background: "#4caf50",
     color: "white",
     border: "none",
     borderRadius: "4px",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
-  const footerStyle = {
+  const footerStyle: CSSProperties = {
     marginTop: "1rem",
     textAlign: "center",
     fontSize: "0.9rem",
-    color: "#666"
+    color: "#666",
   };
 
-  const successMessageStyle = {
+  const successMessageStyle: CSSProperties = {
     marginTop: "1rem",
     textAlign: "center",
     color: "green",
-    fontSize: "0.9rem"
+    fontSize: "0.9rem",
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setShowMessage(true);
   };
