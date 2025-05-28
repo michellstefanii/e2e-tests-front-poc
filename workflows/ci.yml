@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout application repo
+        uses: actions/checkout@v4
+
+      - name: Setup and start application
+        run: |
+          npm ci
+          npm run build
+          npm run start &  # ou start em background, depende do app
+
+      - name: Wait for app to be ready
+        run: |
+          npx wait-on http://localhost:5173
+
+      - name: Checkout e2e repo
+        uses: actions/checkout@v4
+        with:
+          repository: michellstefanii/e2e-tests-poc
+          path: e2e
+
+      - name: Run e2e tests
+        run: |
+          cd e2e
+          npm ci
+          npm run test:e2e
