@@ -18,7 +18,7 @@ jobs:
       run: |
         npm ci
         npm run build
-        npm run start &  # ou start em background, depende do app
+        npm run preview -- --port 5173 &
 
     - name: Wait for app to be ready
       run: |
